@@ -1,6 +1,7 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@openzeppelin/hardhat-upgrades";
+import "@nomicfoundation/hardhat-ignition-ethers";
 
 import * as dotenv from "dotenv";
 
@@ -19,6 +20,12 @@ const config: HardhatUserConfig = {
         runs: 200,
       },
     },
+  },
+  ignition: {
+    blockPollingInterval: 1_000,
+    timeBeforeBumpingFees: 3 * 60 * 1_000,
+    maxFeeBumps: 4,
+    requiredConfirmations: 1,
   },
   defaultNetwork: "testnet",
   networks: {
